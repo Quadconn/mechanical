@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="quad">
+  <link
+    name="body">
+    <inertial>
+      <origin
+        xyz="-0.32759 -2.7409E-15 -6.3838E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.54938" />
+      <inertia
+        ixx="0.00080265"
+        ixy="-4.0754E-17"
+        ixz="2.5378E-19"
+        iyy="0.005012"
+        iyz="-1.4159E-18"
+        izz="0.0052752" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="fl_thigh">
+    <inertial>
+      <origin
+        xyz="0.11146 0.0015174 -2.6761E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.37562" />
+      <inertia
+        ixx="0.00013061"
+        ixy="-2.1926E-05"
+        ixz="2.1184E-08"
+        iyy="0.0014106"
+        iyz="4.7747E-10"
+        izz="0.0012998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fl_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fl_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_hip_roll"
+    type="revolute">
+    <origin
+      xyz="-0.214 0.11772 0"
+      rpy="0 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="fl_thigh" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="fl_calf">
+    <inertial>
+      <origin
+        xyz="-2.4045E-06 0.038802 -0.096422"
+        rpy="0 0 0" />
+      <mass
+        value="0.41885" />
+      <inertia
+        ixx="0.0018205"
+        ixy="4.0006E-10"
+        ixz="-2.1087E-08"
+        iyy="0.0019294"
+        iyz="0.0001133"
+        izz="0.00016541" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fl_calf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fl_calf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_hip_pitch"
+    type="revolute">
+    <origin
+      xyz="0.19225 0.023 0"
+      rpy="0 0 0" />
+    <parent
+      link="fl_thigh" />
+    <child
+      link="fl_calf" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="fl_foot">
+    <inertial>
+      <origin
+        xyz="-0.0014825 -0.0055097 -0.12008"
+        rpy="0 0 0" />
+      <mass
+        value="0.12868" />
+      <inertia
+        ixx="0.00045027"
+        ixy="-3.4438E-08"
+        ixz="2.7513E-06"
+        iyy="0.00045669"
+        iyz="6.1851E-06"
+        izz="1.5555E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fl_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fl_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_knee_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0.081 -0.19625"
+      rpy="0 0 0" />
+    <parent
+      link="fl_calf" />
+    <child
+      link="fl_foot" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="fr_thigh">
+    <inertial>
+      <origin
+        xyz="0.11146 -0.0015174 2.6761E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.37562" />
+      <inertia
+        ixx="0.00013061"
+        ixy="2.1926E-05"
+        ixz="-2.1184E-08"
+        iyy="0.0014106"
+        iyz="4.7747E-10"
+        izz="0.0012998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fr_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fr_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_hip_roll"
+    type="revolute">
+    <origin
+      xyz="-0.214 -0.11773 0"
+      rpy="0 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="fr_thigh" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="fr_calf">
+    <inertial>
+      <origin
+        xyz="2.4045E-06 -0.038802 -0.096422"
+        rpy="0 0 0" />
+      <mass
+        value="0.41885" />
+      <inertia
+        ixx="0.0018205"
+        ixy="4.0006E-10"
+        ixz="2.1087E-08"
+        iyy="0.0019294"
+        iyz="-0.0001133"
+        izz="0.00016541" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fr_calf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fr_calf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_hip_pitch"
+    type="revolute">
+    <origin
+      xyz="0.19225 -0.023 0"
+      rpy="0 0 0" />
+    <parent
+      link="fr_thigh" />
+    <child
+      link="fr_calf" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="fr_foot">
+    <inertial>
+      <origin
+        xyz="-0.0014825 0.0055097 -0.12008"
+        rpy="0 0 0" />
+      <mass
+        value="0.12868" />
+      <inertia
+        ixx="0.00045027"
+        ixy="3.4438E-08"
+        ixz="2.7513E-06"
+        iyy="0.00045669"
+        iyz="-6.1851E-06"
+        izz="1.5555E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fr_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/fr_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_knee_pitch"
+    type="revolute">
+    <origin
+      xyz="0 -0.081 -0.19625"
+      rpy="0 0 0" />
+    <parent
+      link="fr_calf" />
+    <child
+      link="fr_foot" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="bl_thigh">
+    <inertial>
+      <origin
+        xyz="-0.11146 0.0015174 2.6761E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.37562" />
+      <inertia
+        ixx="0.00013061"
+        ixy="2.1926E-05"
+        ixz="2.1184E-08"
+        iyy="0.0014106"
+        iyz="-4.7747E-10"
+        izz="0.0012998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/bl_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/bl_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bl_hip_roll"
+    type="revolute">
+    <origin
+      xyz="-0.441 0.11772 0"
+      rpy="0 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="bl_thigh" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="bl_calf">
+    <inertial>
+      <origin
+        xyz="-2.4045E-06 0.038802 -0.096422"
+        rpy="0 0 0" />
+      <mass
+        value="0.41885" />
+      <inertia
+        ixx="0.0018205"
+        ixy="4.0006E-10"
+        ixz="-2.1087E-08"
+        iyy="0.0019294"
+        iyz="0.0001133"
+        izz="0.00016541" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/bl_calf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/bl_calf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bl_hip_pitch"
+    type="revolute">
+    <origin
+      xyz="-0.19225 0.023 0"
+      rpy="0 0 0" />
+    <parent
+      link="bl_thigh" />
+    <child
+      link="bl_calf" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="bl_foot">
+    <inertial>
+      <origin
+        xyz="-0.0014825 -0.0055097 -0.12008"
+        rpy="0 0 0" />
+      <mass
+        value="0.12868" />
+      <inertia
+        ixx="0.00045027"
+        ixy="-3.4438E-08"
+        ixz="2.7513E-06"
+        iyy="0.00045669"
+        iyz="6.1851E-06"
+        izz="1.5555E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/bl_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/bl_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bl_knee_pitch"
+    type="revolute">
+    <origin
+      xyz="0 0.081 -0.19625"
+      rpy="0 0 0" />
+    <parent
+      link="bl_calf" />
+    <child
+      link="bl_foot" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="br_thigh">
+    <inertial>
+      <origin
+        xyz="-0.11146 -0.0015174 -2.6761E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.37562" />
+      <inertia
+        ixx="0.00013061"
+        ixy="-2.1926E-05"
+        ixz="-2.1184E-08"
+        iyy="0.0014106"
+        iyz="-4.7747E-10"
+        izz="0.0012998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/br_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/br_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="br_hip_roll"
+    type="revolute">
+    <origin
+      xyz="-0.441 -0.11773 0"
+      rpy="0 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="br_thigh" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="br_calf">
+    <inertial>
+      <origin
+        xyz="2.4045E-06 -0.038802 -0.096422"
+        rpy="0 0 0" />
+      <mass
+        value="0.41885" />
+      <inertia
+        ixx="0.0018205"
+        ixy="4.0006E-10"
+        ixz="2.1087E-08"
+        iyy="0.0019294"
+        iyz="-0.0001133"
+        izz="0.00016541" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/br_calf.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/br_calf.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="br_hip_pitch"
+    type="revolute">
+    <origin
+      xyz="-0.19225 -0.023 0"
+      rpy="0 0 0" />
+    <parent
+      link="br_thigh" />
+    <child
+      link="br_calf" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+  <link
+    name="br_foot">
+    <inertial>
+      <origin
+        xyz="-0.0014825 0.0055097 -0.12008"
+        rpy="0 0 0" />
+      <mass
+        value="0.12868" />
+      <inertia
+        ixx="0.00045027"
+        ixy="3.4438E-08"
+        ixz="2.7513E-06"
+        iyy="0.00045669"
+        iyz="-6.1851E-06"
+        izz="1.5555E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/br_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad/meshes/br_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="br_knee_pitch"
+    type="revolute">
+    <origin
+      xyz="0 -0.081 -0.19625"
+      rpy="0 0 0" />
+    <parent
+      link="br_calf" />
+    <child
+      link="br_foot" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-12.56"
+      upper="12.56"
+      effort="10"
+      velocity="0" />
+  </joint>
+</robot>
